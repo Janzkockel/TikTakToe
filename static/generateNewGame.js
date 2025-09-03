@@ -23,6 +23,8 @@ async function joinGame() {
     gameStatus[id]["player2-id"] = namePlayerId;
     gameStatus[id][namePlayerId + "-symbol"] = "o";
     gameStatus[id][namePlayerId + "-color"] = "rgba(0, 255, 38, 0.85)";
+    gameStatus[id][namePlayerId + "-replay"] = "u"; // u = undecided, its not false because we dont know it
+    gameStatus[id][namePlayerId + "-resetBtn"] = false;
 
     localStorage.setItem("playerId", namePlayerId);
     localStorage.setItem("myGameId", id);
@@ -54,7 +56,9 @@ function generateNewGame() {
         "gameStatus":
             [["u", "u", "u"],
             ["u", "u", "u"],
-            ["u", "u", "u"]]
+            ["u", "u", "u"]],
+        [namePlayerId + "-replay"]: "u",// u = undecided, its not false because we dont know it 
+        [namePlayerId + "-resetBtn"]: false,
     };
 
     console.log("Sende neuen GameStatus:", JSON.stringify(newGameStatus));

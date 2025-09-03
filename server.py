@@ -11,6 +11,10 @@ GameStatus = {
         "last-move": "placeholder",
         "gameId": "placeholder",
         "gameStatus": [["u", "u", "u"], ["u", "u", "u"], ["u", "u", "u"]],
+        "replay-p1": "u",
+        "replay-p2": "u",
+        "resetBtn-p1": False,
+        "resetBtn-p2": False
     }
 }
 
@@ -21,6 +25,17 @@ def home():
 
 @app.route("/getGameStatus", methods=["GET"])
 def sendGameStatus():
+    for gameid, game in GameStatus.items():
+        p1 = game["player1-id"]
+        p2 = game["player2-id"]
+
+        if game.get(p1 + "-replay") == True and game.get(p2 + "-replay") == True:
+            game["gameStatus"] = [["u","u","u"],["u","u","u"],["u","u","u"]]
+            game[p1 + "-replay"] = "u"
+            game[p2 + "-replay"] = "u"
+            game[p1 + "-resetBtn"] = True
+            game[p2 + "-resetBtn"] = True
+          
     return flask.jsonify(GameStatus)
 
 
