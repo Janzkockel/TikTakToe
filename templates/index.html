@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tik Tak Toe</title>
+    <style>
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15%;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #c6ffb0;
+    color: #2d2d2d;
+}
+
+#generateNewGame, 
+#joinGameButton {
+    padding: 12px 28px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    background: #4caf50;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+#generateNewGame:hover,
+#joinGameButton:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+#generateNewGame:active,
+#joinGameButton:active {
+    transform: scale(0.8);
+}
+
+#gameIdInput {
+    padding: 12px;
+    font-size: 16px;
+    margin: 10px;
+    width: 220px;
+    border: 2px solid #4caf50;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+#gameIdInput:focus {
+    border-color: #45a049;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+    </style>
+    <source src="{{ url_for('static', filename='TikTakToe.html') }}"></source>
+</head>
+
+<body>
+    <div><button id="generateNewGame">new Game</button></div>
+    <div>
+        <p id="gameIdOutput"></p>
+    </div>
+    <div><input id="gameIdInput" type="text"></div>
+    <div><button id="joinGameButton">join Game</button></div>
+    <script type="module" src="{{ url_for('static', filename='generateNewGame.js') }}"></script>
+</body>
+
+</html>

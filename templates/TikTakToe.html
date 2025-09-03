@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tik Tak Toe</title>
+        <style>
+body {
+    text-align: center;
+    background: #4b2c77;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+
+/* Das Tic-Tac-Toe Grid */
+table {
+    margin: 50px auto;
+    border-collapse: collapse;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* Spielfelder (Buttons) */
+.buttons {
+    width: 160px;   /* größer */
+    height: 160px;  /* größer */
+    font-size: 56px; /* größere X / O */
+    font-weight: bold;
+    cursor: pointer;
+    border: 3px solid white; /* dickere Linien */
+    border-radius: 12px;
+    background: #ffffff10;
+    color: white;
+    transition: all 0.25s ease;
+}
+
+/* Hover-Effekt */
+.buttons:hover {
+    background: #ffffff30;
+    transform: scale(1.07);
+}
+
+/* Klick-Effekt */
+.buttons:active {
+    background: #ffffff50;
+    transform: scale(0.95);
+}
+
+
+            </style>
+</head>
+<body>
+    <div><h1>Tik Tak Toe</h1></div>
+    <div><table id="table_id">
+        <tr>
+            <td><button class="buttons" id="tl" onclick="tl_pressed()"></button></td>
+            <td><button class="buttons" id="tm" onclick="tm_pressed()"></button></td>
+            <td><button class="buttons" id="tr" onclick="tr_pressed()"></button></td>
+        </tr>
+        <tr>
+            <td><button class="buttons" id="ml" onclick="ml_pressed()"></button></td>
+            <td><button class="buttons" id="mm" onclick="mm_pressed()"></button></td>
+            <td><button class="buttons" id="mr" onclick="mr_pressed()"></button></td>
+        </tr>
+        <tr>
+            <td><button class="buttons" id="bl" onclick="bl_pressed()"></button></td>
+            <td><button class="buttons" id="bm" onclick="bm_pressed()"></button></td>
+            <td><button class="buttons" id="br" onclick="br_pressed()"></button></td>
+        </tr>
+    </table></div>
+    <div><h2><p id="gameIdOutput"></p><p id="winnerIdOutput"></p></h2></div>
+    <script type="module" src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
