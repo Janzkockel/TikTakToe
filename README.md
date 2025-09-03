@@ -10,4 +10,4 @@ I am doing an online Tik Tak Toe, which you can reached under the url https://pi
 The server runs with Python Flask and does not direktly run in the public network. To connect with the Public Network I did not open a Port instead it uses ngrok. Ngrok is Tunnel service which transfers the data from inside the port to the client.
 
 ## How does the game algorithm work?
-The game is a normal Tik Tak Toe (3 wins). It is written in JavaScript and is written troughout multiple files. The main file is script.js. 
+The game is a normal Tik Tak Toe (3 wins). It is written in JavaScript and is written troughout multiple files. The main file is script.js. The game calculations runs on the frontend mainly in buttonsControll.js.
