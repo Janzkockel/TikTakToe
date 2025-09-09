@@ -18,23 +18,30 @@ async function joinGame() {
     await getGameStatus();
     console.log("Aktueller Spielstatus:", gameStatus);
 
-    let id = gameIdInput.value;
-    let namePlayerId = prompt("Enter your name:");
-    gameStatus[id]["player2-id"] = namePlayerId;
-    gameStatus[id][namePlayerId + "-symbol"] = "o";
-    gameStatus[id][namePlayerId + "-color"] = "rgba(0, 255, 38, 0.85)";
-    gameStatus[id][namePlayerId + "-replay"] = "u"; // u = undecided, its not false because we dont know it
-    gameStatus[id][namePlayerId + "-resetBtn"] = false;
+    try {
+        let id = gameIdInput.value;
+        gameStatus[id]["player2-id"]; // Test if game with this ID exists        
+        let namePlayerId = prompt("Enter your name:");
+        gameStatus[id]["player2-id"] = namePlayerId;
+        gameStatus[id][namePlayerId + "-symbol"] = "o";
+        gameStatus[id][namePlayerId + "-color"] = "rgba(0, 255, 38, 0.85)";
+        gameStatus[id][namePlayerId + "-replay"] = "u"; // u = undecided, its not false because we dont know it
+        gameStatus[id][namePlayerId + "-resetBtn"] = false;
 
-    localStorage.setItem("playerId", namePlayerId);
-    localStorage.setItem("myGameId", id);
+        localStorage.setItem("playerId", namePlayerId);
+        localStorage.setItem("myGameId", id);
 
-    const response2 = await fetch("/updateGameStatus", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(gameStatus)
-    });
-    window.location.href = '/TikTakToe';
+        const response2 = await fetch("/updateGameStatus", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(gameStatus)
+        });
+        window.location.href = '/TikTakToe';
+    }
+    catch (error) {
+        alert("Game ID not found. Please check the ID and try again.");
+        console.error("Error joining game:", error);
+    }
 }
 
 function generateNewGame() {
