@@ -67,7 +67,6 @@ export function reset_buttons() {
     replay.style.visibility = "hidden";
     new_game.style.visibility = "hidden";
 
-    console.log("Buttons reseted");
 }
 
 function new_game_btn() {
