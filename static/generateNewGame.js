@@ -20,7 +20,7 @@ async function joinGame() {
 
     try {
         let id = gameIdInput.value;
-        gameStatus[id]["player2-id"]; // Test if game with this ID exists        
+        gameStatus[id]["player2-id"]; // man ruft es auf um zu checken ob es den wert/Variabel gibt        
         let namePlayerId = prompt("Enter your name:");
         gameStatus[id]["player2-id"] = namePlayerId;
         gameStatus[id][namePlayerId + "-symbol"] = "o";
