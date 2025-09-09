@@ -10,8 +10,11 @@ export async function replay_btn() {
     let gameStatus = await getGameStatus(myGameId, playerId);
     gameStatus[myGameId][playerId + "-replay"] = true;
     sendGameStatus(gameStatus);
-
+    replay.style.background = "#39d85cec";
 }
+
+new_game.onclick = new_game_btn;
+
 export function reset_buttons() {
 
  
@@ -65,4 +68,10 @@ export function reset_buttons() {
     new_game.style.visibility = "hidden";
 
     console.log("Buttons reseted");
+}
+
+function new_game_btn() {
+    localStorage.removeItem("myGameId");
+    localStorage.removeItem("playerId");
+    window.location.href = "https://pig-comic-heron.ngrok-free.app/";
 }

@@ -1,7 +1,6 @@
 import { replay, new_game } from "./replay_anotherGame.js";
 
-export function someoneWon(winner, GameStatus, myGameId) {
-
+export function someoneWon(winner, GameStatus, myGameId, playerId) {
 
     tl.disabled = true;
     tm.disabled = true;
@@ -41,5 +40,8 @@ export function someoneWon(winner, GameStatus, myGameId) {
     replay.style.visibility = "visible";
     new_game.style.visibility = "visible";
     
+    if(GameStatus[myGameId][playerId + "-replay"] === "u"){
+        replay.style.background = "#ffffff10";
+    }
 
 }

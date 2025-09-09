@@ -6,7 +6,6 @@ export function checkWin(gameStatus, myGameId) {
     }
     for(let col=0; col<=2; col++){
         if(gameStatus[myGameId].gameStatus[0][col] !== 'u' && gameStatus[myGameId].gameStatus[0][col] === gameStatus[myGameId].gameStatus[1][col] && gameStatus[myGameId].gameStatus[1][col] === gameStatus[myGameId].gameStatus[2][col]){
-            console.log("col win");
             return gameStatus[myGameId].gameStatus[0][col];
         }
     }

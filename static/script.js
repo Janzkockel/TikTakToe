@@ -34,7 +34,7 @@ async function updateGameStatus() {
 
     let winner = checkWin(GameStatus, myGameId);
     if (winner !== "noWinner") {
-        someoneWon(winner, GameStatus, myGameId);
+        someoneWon(winner, GameStatus, myGameId, playerId);
     }
         
     if (GameStatus[myGameId][playerId + "-resetBtn"]) {
