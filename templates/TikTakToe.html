@@ -49,8 +49,9 @@
             background: #ffffff50;
             transform: scale(0.95);
         }
-        
-        #replay_btn, #new_game_btn {
+
+        #replay_btn,
+        #new_game_btn {
             padding: 10px 20px;
             font-size: 24px;
             font-weight: bold;
@@ -61,17 +62,44 @@
             color: white;
             transition: all 0.25s ease;
             visibility: hidden;
-            
+
         }
-        #replay_btn:hover, #new_game_btn:hover {
+
+        #replay_btn:hover,
+        #new_game_btn:hover {
             background: #ffffff30;
             transform: scale(1.07);
         }
 
+        #myAlert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 2px solid #444;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: none;
+            /* Standardmäßig unsichtbar */
+            z-index: 1000;
+        }
+
+        #myAlert button {
+            margin-top: 10px;
+        }
+        #alertMessage {
+            color: black;
+        }   
     </style>
 </head>
 
 <body>
+    <div id="myAlert">
+        <p id="alertMessage"></p>
+        <button id="closeBtn" onclick="closeAlert()">OK</button>
+    </div>
     <div>
         <h1>Tik Tak Toe</h1>
     </div>
