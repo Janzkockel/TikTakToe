@@ -1,4 +1,4 @@
-//ngrok http --domain=pig-comic-heron.ngrok-free.app 8080
+//ngrok http --domain=pig-comic-heron.ngrok-free.app 5050
 import { getGameStatus } from "./getGameData.js";
 import { checkWin } from "./winAlgorithm.js";
 import { someoneWon } from "./someoneWon.js";
